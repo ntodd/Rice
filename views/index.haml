@@ -1,0 +1,93 @@
+#header.span-24
+  %h1 Rice
+  / %h2.gill A Distributed Processing Experiment 
+#content.span-24
+
+  #intro.span-12
+    %h2 What is Rice?
+    %p Rice is an experiment in distributed javascript processing.  It uses the browser processing power of many machines to form a distributed processing system that can hopefully rival the power of dedicated servers and server clusters.  Javascript cannot rival the speed and efficiency of lower-level languages, but we are hoping the ease of use will lower the technical barrier of entry and allow more individuals to get involved. It's only recently that browser performance has gotten to the point that something of this nature potentially possible.
+
+    %h2 Why are we doing this?
+    %p
+      %img{ :src => "/img/logo-engineyard.png", :align => "right"}
+      Being ruby hackers (this whole app is built with <a href="http://sinatrarb.com">Sinatra</a>), we have known for some time about the great rails hosting company that is <a href="http://engineyard.com">Engine Yard</a>.  Recently, Engine Yard has sponsored a <a href="http://www.engineyard.com/blog/2009/programming-contest-win-iphone-3gs-2k-cloud-credit/">contest for developers</a> with a prize of 1 iPhone 3GS and $2,000 of hosting.  We took the opportunity to try out an idea, and the result is what you are looking at now.
+    %p We already have iPhones, so we decided that we would give away the iPhone as a prize to the person who helps us win the competition.  Shortly after we decided that we would also attempt to auction off the $2000 hosting credit and donate the proceeds to charity.  Our prize is just doing something fun and interesting.
+      
+  #why.span-12.last
+    #what_do_i_get_because_i_help_and_am_awesome_and_have_a_really_fast_browser
+      %h2 How does this work?
+      %ol
+        %li Sign up here and we will notify you when the contest starts.
+        %li Browse to this site the day of the contest and there will be instructions.
+        %li Run the computation in your browser and leave it running for the duration of the contest.
+        %li Your browser will intermittently report your progress back to our servers and log your results.
+        %li 
+          We will be submitting our best results via twitter to 
+          %a{ :href => "https://twitter.com/engineyard" } Engine Yard
+          at the end of the contest.
+        %li If one of your results wins the competition, we will pass on the iPhone 3GS to you.  We will contact you through your registered email address.
+        %li The $2000 in hosting will be auctioned off and 100% of the profits will go towards a local homeless charity, <a href="http://www.news-sentinel.com/apps/pbcs.dll/article?AID=/20090603/NEWS01/906030310/1001/NEWS">Inasmuch</a>.
+      .notice 
+        We will abide by any requirements of Engine Yard as this is their contest and their rules.  The prize iPhone 3GS will be the standard American model and is not guaranteed to be compatible with overseas carriers. <strong>The prizes will only be given away if we actually win.</strong
+
+  #browser_requirements.span-24
+    %h2 Browser Requirements
+    %p We recommend the use of these high-speed browsers.  Firefox is usable, but 2-3x slower than webkit-based browsers for this task.
+    .span-8
+      .browser 
+        %img{ :src => "/img/chrome.png" }
+        %span Chrome for Mac
+        %br
+        %a{ :href => "http://www.google.com/chrome/intl/en/eula_dev.html?dl=mac" } Download
+    .span-8
+      .browser
+        %img{ :src => "/img/chrome.png" }
+        %span Chrome for Windows
+        %br
+        %a{ :href => "http://www.google.com/chrome/eula.html" } Download
+    .span-8.last
+      .browser
+        %img{ :src => "/img/safari.png" }
+        %span Safari for Windows/Mac
+        %br
+        %a{ :href => "http://www.apple.com/safari/" } Download
+  .span-24
+    .error <strong>Microsoft's Internet Explorer</strong> is an embarrassingly poor browser and will not be supported.  Don't even try.
+  #performance.span-24
+    %h2 Performance &amp; What to expect
+    .span-12
+      %p We have benchmarked the code on all "real" browsers, and the best option by far is Google's Chrome browser.  Chrome's V8 Javascript engine is easily tied with Webkit's Squirrelfish engine, but Chrome has the added benefit of process isolation.  This means that each tab in chrome runs independently of the others and will not slow them down or affect their performance.  
+    .span-12.last
+      %p This experiment is designed to take up 100% of your browser's resources and can cause traditional browsers (FF, Safari) to bog down.  With Chrome, you can open a new tab and keep browsing the web.  Not only that, you can utilize all the processing power of a multi-core system, by opening a tab for each core.  The benchmarks below were performed on a 2006 Apple Mac Pro Quad 2.66Ghz running 10.5.7.
+    %img{ :src => "/img/graph.png" }
+
+  .span-24
+  
+    .span-16
+      %h2 Sign Up and Help Out
+      %p We require users to sign up with an email address so we can correlate results across multiple machines or browsers and to contact a winning user.  Therefore, it is important that you use a correct email address so you can be reached.
+      %p We will use this email address to contact you on the morning of the event to let you know to visit the site and begin processing.  We will not use this email for any other purpose and will discard all addresses as soon as the competition is over.  We absolutely hate spam and will treat your email address as if it were ours.
+      %p However, if this kind of thing interests you and you would like to hear more about cool things we do (we have a lot of fun things going on), you can check the checkbox and we will email you every once in a great while when we feel we have done something interesting enough to warrant an email.  It's up to you.
+
+    .span-8.last
+      .signup-box
+        %h2 Sign Up
+        %form#signup{ :action => "/signup" }
+          / .error Oops.  Need a correct address.
+          %p
+            %label{ :for => "email" } Email Address
+            %br
+            %input#email.text{ :type => "text", :name => "email" }
+          %p
+            %input#is_cool.checkbox{ :type => "checkbox", :name => "is_cool" } 
+            %label.normal{ :for => "is_cool" } I'd like to get emailed about cool stuff you do in the future (no more than 5 times a year)
+          %p
+            %a.button{ :href => "#" }
+              %span Sign Up
+          %br{ :style => "clear:both;" }
+          
+#footer.span-24
+  %p 
+    Rice is a project of Pixel Authority - 2009
+    %br
+    This is in no way affiliated with <a href="http://engineyard.com">Engine Yard</a>, a really great rails hosting company

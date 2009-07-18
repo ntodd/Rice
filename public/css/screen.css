@@ -1,0 +1,123 @@
+body {
+  background: #D2D5DA;
+  color: #4A4A4A;
+}
+
+a {
+  color: #bf2e1a;
+}
+
+.container {
+  background: url('../img/bg.jpg') no-repeat;
+}
+
+#header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#header h1 {
+  margin: 40px auto;
+  width: 573px;
+  height: 69px;
+  background: url('../img/header.png') no-repeat;
+  text-indent: -3000px;
+  margin-bottom: 40px;
+  padding-bottom: 0;
+}
+
+#header h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 26px;
+  font-weight: light;
+}
+
+h2 {
+  color: #4A4A4A;
+  text-transform: uppercase;
+}
+
+.signup-box {
+  padding: 2em;
+  background: #fafafa;
+  margin-bottom: 20px;
+}
+
+#email {
+  width: 250px;
+}
+
+a.button {
+    background: transparent url('../img/bg_button_a.gif') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+    outline: none;
+}
+
+a.button span {
+    background: transparent url('../img/bg_button_span.gif') no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+} 
+
+a.button:active {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.button:active span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px; /* push text down 1px */
+    outline: none;
+}
+
+.checkbox {
+  vertical-align: top;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.browser {
+  background: url('../img/browser_bg.png') no-repeat;
+  padding: 10px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.browser span {
+  font-weight: bold;
+}
+
+.browser img {
+  float: left;
+  padding-right: 10px;
+}
+
+p img {
+  padding: 10px;
+}
+
+#what_do_i_get_because_i_help_and_am_awesome_and_have_a_really_fast_browser {
+  padding: 2em;
+  background: #fafafa;
+  margin-bottom: 20px;
+}
