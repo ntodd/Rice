@@ -117,7 +117,12 @@ p img {
 }
 
 #what_do_i_get_because_i_help_and_am_awesome_and_have_a_really_fast_browser {
-  padding: 2em;
+  padding: 2em 2em 1em 2em;
   background: #fafafa;
   margin-bottom: 20px;
+}
+
+label.error {
+  display:block;
+  width:239px;
 }

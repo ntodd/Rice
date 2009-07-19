@@ -14,11 +14,12 @@ end
 
 post '/process' do
   request = ActiveSupport::JSON.decode(params[:request])
-  # result = Result.new(request)
   p request[:ham]
 end
 
 post '/signup' do
-  
-  
+  user = User.new(params)
+  unless user.save()
+    user.errors
+  end
 end

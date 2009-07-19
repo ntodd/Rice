@@ -1,10 +1,18 @@
-$('signup').addEvent('submit', function(e) {
-  new Event(e).stop();
-  var log = $('log_res').empty().addClass('ajax-loading');
-  this.send({
-    update: log,
-    onComplete: function() {
-      log.removeClass('ajax-loading');
-    }
+$(document).ready(function () {
+  
+  $("form").submit(function() {
+    return false;
   });
+
+  $("#signup_button").click(function () { 
+    if ($("#signup").validate().form()) {
+      $.post("/signup", $("#signup").serialize(),
+        function(data){
+          $("#success").slideDown();
+        }
+      );
+    };
+    return false;
+  });
+
 });
