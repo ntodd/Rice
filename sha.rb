@@ -13,7 +13,7 @@ get '/process' do
 end
 
 post '/process' do
-  request = ActiveSupport::JSON.decode(params[:request])
+  request = params[:request]
   p request[:ham]
 end
 

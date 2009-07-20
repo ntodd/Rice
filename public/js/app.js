@@ -56,7 +56,7 @@ var look = function(){
 		
 		if (!lowest || (lowest.ham && lowest.ham > h)){
 			lowest = {ham : h, bin:b, 'string' : string, hash:sha1};
-      new Request({url : '/process', data:{request:JSON.encode(lowest)}}).send(); //todo: change the address in this line
+      new Request({url : '/process', data:{request:lowest}}).send(); //todo: change the address in this line
       // $('results').appendText('{ham}, {string}, {hash}, {bin}\n'.substitute(lowest));
 			$('ham').set('text', h);
 		}
@@ -74,4 +74,26 @@ var update = function(){
 	$update = update.delay(1000);
 }
 
-window.addEvent('domready', function(){look();update();});
+function startSearch(){
+	console.log('start')
+	look();
+	update();
+}
+
+function stopSearch(){
+	console.log('stop')
+	$clear($look);
+	$clear($update);
+}
+
+window.addEvent('domready', function(){
+	
+	$('startstop').addEvent('click', function(event){
+		event.stop();
+		if ($look || $update){
+			stopSearch();
+		}else{
+			startSearch();
+		}
+	});
+});
