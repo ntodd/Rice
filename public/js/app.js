@@ -97,7 +97,7 @@ window.addEvent('domready', function(){
 			$('startstop').set('text','Start');
 		}else{
 			emailAddress = $('email').get('value');
-			$('email').addClass('hide');
+			$$('h1, #email').addClass('hide');
 			$$('.result-text').removeClass('hide');
 			$('startstop').set('text','Stop');
 			if ($('count').get('text') == '')
