@@ -86,6 +86,8 @@ function startSearch(){
 function stopSearch(){
 	$clear($look);
 	$clear($update);
+	$look = false;
+	$update = false;
 }
 
 window.addEvent('domready', function(){
