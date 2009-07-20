@@ -16,11 +16,6 @@ post '/process' do
   request = params[:request]
   result = Result.new( :ham => request[:ham], :string => request[:string], :sha => request[:hash], :bin => request[:bin], :timestamp => Time.now, :email => request[:email] )
   result.save
-  
-  # user = User.find_by_email(request[:email])
-  # user.count = user.count + request[:count].to_i
-  # user.save
-  
 end
 
 post '/signup' do
@@ -32,7 +27,11 @@ post '/signup' do
 end
 
 post '/user' do
-  user = User.find_by_email(params[:email])
+  if User.exists?(:email => params[:email])
+    user = User.find_by_email(params[:email])
+  else
+    user = User.find_by_email("none")
+  end
   user.count = user.count + params[:count].to_i
   user.save
 end
