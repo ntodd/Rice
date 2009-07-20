@@ -2,7 +2,7 @@ require 'activesupport'
 require 'activerecord'
 
 # Find environment
-# RACK_ENV = ENV['RACK_ENV'] || 'development' unless defined? RACK_ENV
+RACK_ENV = ENV['RACK_ENV'] || 'development' unless defined? RACK_ENV
 
 dbconfig = YAML.load(File.read('config/database.yml'))
 ActiveRecord::Base.establish_connection dbconfig['production']
