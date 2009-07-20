@@ -99,10 +99,10 @@ window.addEvent('domready', function(){
 		event.stop();
 		if ($look || $update){
 			stopSearch();
-			$('startstop').set('text','UnPause');
+			$('startstop').set('text','Resume');
 		}else{
 			emailAddress = $('email').get('value');
-			$$('h2, #email').addClass('hide');
+			$$('h2, #email, #info').addClass('hide');
 			$$('.result-text').removeClass('hide');
 			$('startstop').set('text','Pause');
 			if ($('count').get('text') == '')
