@@ -42,7 +42,7 @@ String.implement({
 // var time = 0;
 var lowest = false;
 var $look, $update;
-var baseline = '6cac827bae250971a8b1fb6e2a96676f7a077b60'.to_binary();
+var baseline = '1249c4b7f578204f10798c0269f8488280fb9981'.to_binary();
 var count = 0;
 var iterations = (Browser.Platform.ipod ? 200 : 1000);
 var sinceLast = 0;
