@@ -45,6 +45,8 @@ var $look, $update;
 var baseline = '6cac827bae250971a8b1fb6e2a96676f7a077b60'.to_binary();
 var count = 0;
 var iterations = (Browser.Platform.ipod ? 200 : 1000);
+var sinceLast = 0;
+var emailAddress;
 var look = function(){
   var n = iterations;
 	while(n>0) {
@@ -55,12 +57,14 @@ var look = function(){
 		var h = baseline.ham_value(b);
 		
 		if (!lowest || (lowest.ham && lowest.ham > h)){
-			lowest = {ham : h, bin:b, 'string' : string, hash:sha1};
-      new Request({url : '/process', data:{request:lowest}}).send(); //todo: change the address in this line
-      // $('results').appendText('{ham}, {string}, {hash}, {bin}\n'.substitute(lowest));
+			lowest = {ham : h, bin:b, 'string' : string, hash:sha1, count:sinceLast, email:emailAddress};
+      		new Request({url : '/process', data:{request:lowest}}).send(); //todo: change the address in this line
+			sinceLast = 0;
+      		// $('results').appendText('{ham}, {string}, {hash}, {bin}\n'.substitute(lowest));
 			$('ham').set('text', h);
 		}
-
+		
+		++sinceLast;
 		++count;
 		--n;
 	};
@@ -75,13 +79,11 @@ var update = function(){
 }
 
 function startSearch(){
-	console.log('start')
 	look();
 	update();
 }
 
 function stopSearch(){
-	console.log('stop')
 	$clear($look);
 	$clear($update);
 }
@@ -92,8 +94,17 @@ window.addEvent('domready', function(){
 		event.stop();
 		if ($look || $update){
 			stopSearch();
+			$('startstop').set('text','Start');
 		}else{
-			startSearch();
+			emailAddress = $('email').get('value');
+			$('email').addClass('hide');
+			$$('.result-text').removeClass('hide');
+			$('startstop').set('text','Stop');
+			if ($('count').get('text') == '')
+				$('count').set('text','0')
+			if ($('ham').get('text') == '')
+				$('ham').set('text','n/a')
+			startSearch.delay(10); //so that everything is visibly ready first
 		}
 	});
 });
