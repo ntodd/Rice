@@ -3,8 +3,9 @@ class CreateResults < ActiveRecord::Migration
     create_table :results do |t|
       t.string :string, :null => false
       t.string :ham, :null => false
-      t.string :hash, :null => false
+      t.string :sha, :null => false
       t.string :bin, :null => false
+      t.string :email, :null => false
       t.datetime :timestamp
       t.string :ip
     end

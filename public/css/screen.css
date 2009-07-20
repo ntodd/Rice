@@ -1,6 +1,9 @@
+html{height:100%;}
+
 body {
-  background: #D2D5DA;
   color: #4A4A4A;
+  background: #D2D5DA url('../img/bg.jpg') no-repeat center;
+  height:100%;
 }
 
 a {
@@ -8,7 +11,7 @@ a {
 }
 
 .container {
-  background: url('../img/bg.jpg') no-repeat;
+/*  background: url('../img/bg.jpg') no-repeat;*/
 }
 
 #header {

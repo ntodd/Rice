@@ -96,12 +96,12 @@ window.addEvent('domready', function(){
 		event.stop();
 		if ($look || $update){
 			stopSearch();
-			$('startstop').set('text','Start');
+			$('startstop').set('text','UnPause');
 		}else{
 			emailAddress = $('email').get('value');
-			$$('h1, #email').addClass('hide');
+			$$('h2, #email').addClass('hide');
 			$$('.result-text').removeClass('hide');
-			$('startstop').set('text','Stop');
+			$('startstop').set('text','Pause');
 			if ($('count').get('text') == '')
 				$('count').set('text','0')
 			if ($('ham').get('text') == '')
