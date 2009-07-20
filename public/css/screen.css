@@ -126,3 +126,15 @@ label.error {
   display:block;
   width:239px;
 }
+
+#results {
+/*  margin-top: 250px;*/
+}
+
+#ham {
+  font-size: 200px;
+}
+
+#count {
+  font-size: 50px;
+}

@@ -6,5 +6,11 @@
     %script{ :src => "js/dict.js", :type => "text/javascript", :charset => "utf-8" }
     %script{ :src => "js/mootools1.2.both.js", :type => "text/javascript", :charset => "utf-8" }
     %script{ :src => "js/app.js", :type => "text/javascript", :charset => "utf-8" }
+    %link{ :rel => "stylesheet", :href => "/css/blueprint/screen.css", :type => "text/css", :media => "screen, projection" }
+    %link{ :rel => "stylesheet", :href => "/css/blueprint/print.css", :type => "text/css", :media => "print" }
+    /[if lt IE 8]
+      %link{ :rel => "stylesheet", :href => "/css/blueprint/ie.css", :type => "text/css", :media => "screen, projection" }
+    %link{ :rel => "stylesheet", :href => "/css/screen.css", :type => "text/css", :media => "screen, projection" }
   %body
-    = yield
+    .container
+      = yield

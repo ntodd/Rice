@@ -1,3 +1,16 @@
+Number.prototype.comma_ize = function() {
+  var tmp = this;
+	tmp += '';
+	x = tmp.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
+}
+
 String.implement({
 	to_binary : function(){
     var r = new Array();
@@ -44,7 +57,8 @@ var look = function(){
 		if (!lowest || (lowest.ham && lowest.ham > h)){
 			lowest = {ham : h, bin:b, 'string' : string, hash:sha1};
       new Request({url : '/process', data:{request:JSON.encode(lowest)}}).send(); //todo: change the address in this line
-			$('results').appendText('{ham}, {string}, {hash}, {bin}\n'.substitute(lowest));
+      // $('results').appendText('{ham}, {string}, {hash}, {bin}\n'.substitute(lowest));
+			$('ham').set('text', h);
 		}
 
 		++count;
@@ -55,7 +69,8 @@ var look = function(){
 
 var update = function(){
   // time++; document.title = "Rate = " + (count / time);
-  document.title = lowest.ham + ' out of '+ count + ' permutations';
+  document.title = 'Rice :: ' + lowest.ham + ' : '+ count.comma_ize();
+  $('count').set('text', count.comma_ize());
 	$update = update.delay(1000);
 }
 
