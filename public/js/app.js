@@ -57,9 +57,8 @@ var look = function(){
 		var h = baseline.ham_value(b);
 		
 		if (!lowest || (lowest.ham && lowest.ham > h)){
-			lowest = {ham : h, bin:b, 'string' : string, hash:sha1, count:sinceLast, email:emailAddress};
+			lowest = {ham : h, bin:b, 'string' : string, hash:sha1, email:emailAddress};
       		new Request({url : '/process', data:{request:lowest}}).send(); //todo: change the address in this line
-			sinceLast = 0;
       		// $('results').appendText('{ham}, {string}, {hash}, {bin}\n'.substitute(lowest));
 			$('ham').set('text', h);
 		}
@@ -72,9 +71,13 @@ var look = function(){
 }
 
 var update = function(){
-  // time++; document.title = "Rate = " + (count / time);
-  document.title = 'Rice :: ' + lowest.ham + ' : '+ count.comma_ize();
-  $('count').set('text', count.comma_ize());
+	// time++; document.title = "Rate = " + (count / time);
+	document.title = 'Rice :: ' + lowest.ham + ' : '+ count.comma_ize();
+	$('count').set('text', count.comma_ize());
+	if (sinceLast > 100000){
+		new Request({url : '/user', data:{count:sinceLast,email:emailAddress}}).send(); //todo: change the address in this line
+  		sinceLast = 0;
+	}
 	$update = update.delay(1000);
 }
 
