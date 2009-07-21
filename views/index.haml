@@ -4,6 +4,12 @@
 .span-24{ :style => "margin-bottom: 1.5em"}
   .success
     Contest has started.  Visit <a href="/process">this link</a> after registration to start processing.
+    %br
+    Best Value = 
+    %strong= @lowest_ham
+    %br
+    Total Calculations = 
+    %strong= number_with_delimiter(@count)
 #content.span-24
 
   #intro.span-12

@@ -4,7 +4,15 @@ require 'init'
 require 'haml'
 require 'active_support'
 
-get '/' do 
+helpers do
+  def number_with_delimiter(number, delimiter=",")
+    number.to_s.gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{delimiter}")
+  end  
+end
+
+get '/' do
+  @count = User.sum('count')
+  @lowest_ham = Result.minimum("ham")
   haml :index
 end
 
